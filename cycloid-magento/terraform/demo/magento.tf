@@ -65,7 +65,7 @@ module "magento" {
 
   #. rds_engine (optional): mysql
   #+ Amazon RDS engine to use.
-  rds_engine           = "mysql"
+  # rds_engine           = "mysql"
 
   #. rds_engine_version (optional): "5.7.16"
   #+ Version of the RDS engine.
