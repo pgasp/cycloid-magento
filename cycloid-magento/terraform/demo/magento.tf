@@ -10,23 +10,23 @@ module "magento" {
 
   #. vpc_id (required):
   #+ Amazon VPC id on which create each components.
-  vpc_id                   = "<vpc-id>"
+  vpc_id                   = "vpc-00f4a3a6008282f90"
 
   #. private_subnets_ids (required, array):
   #+ Amazon subnets IDs on which create each components.
-  private_subnets_ids      = ["private-subnets"]
+  private_subnets_ids      = ["subnet-05ec75b5200052415","subnet-0d47d65159017b238"]
 
   #. magento_ssl_cert (required):
   #+ ARN of an Amazon certificate from Certificate Manager.
-  magento_ssl_cert         = "<ssl-cert-arn>"
+  magento_ssl_cert         = "arn:aws:iam::741626158582:server-certificate/magento-cycloid-demo"
 
   #. bastion_sg_allow (optional):
   #+ Amazon source security group ID which will be allowed to connect on Magento front port 22 (ssh).
-  bastion_sg_allow         = "<bastion-sg>"
+  bastion_sg_allow         = "sg-0d963c307b158d40d"
 
   #. public_subnets_ids (required, array):
   #+ Public subnet IDs to use for the public ELB load balancer.
-  public_subnets_ids       = ["public-subnets"]
+  public_subnets_ids       = ["subnet-09a110524b5485bf0","subnet-074da123a93c5cf96"]
 
   #. rds_password (optional): var.rds_password to get it from the pipeline.
   #+ Password of the RDS database.
@@ -34,14 +34,14 @@ module "magento" {
 
   #. keypair_name (optional): demo
   #+ SSH keypair name to use to deploy ec2 instances.
-  # keypair_name = "demo"
+  keypair_name = "cycloid"
 
   #. extra_tags (optional): {}
   #+ Dict of extra tags to add on aws resources. format { "foo" = "bar" }.
 
   #. rds_database (optional): magento
   #+ Name of the RDS database.
-  # rds_database         = "magento"
+  rds_database         = "magento"
 
   #. rds_disk_size (optional): 10
   #+ Sice in Go of the RDS database.
@@ -61,11 +61,11 @@ module "magento" {
 
   #. rds_username (optional): magento
   #+ User name of the RDS database.
-  # rds_username         = "magento"
+  rds_username         = "admin"
 
   #. rds_engine (optional): mysql
   #+ Amazon RDS engine to use.
-  # rds_engine           = "mysql"
+  rds_engine           = "mysql"
 
   #. rds_engine_version (optional): "5.7.16"
   #+ Version of the RDS engine.
