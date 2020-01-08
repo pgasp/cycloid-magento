@@ -41,6 +41,7 @@ shared:
     - terraform-plan
     - terraform-apply
     - functional-tests
+    - unittest
   - name: destroy
     jobs:
     - terraform-destroy
