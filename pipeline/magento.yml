@@ -41,6 +41,7 @@ groups:
   - terraform-plan
   - terraform-apply
   - functional-tests
+  - unitTest
 - name: destroy
   jobs:
   - terraform-destroy
@@ -224,7 +225,31 @@ jobs:
               terraform_source: merged-stack/
             get_params:
               action: destroy
+   - name: unitTest
+    max_in_flight: 1
+    build_logs_to_retain: 10
+    plan:
+    - do:
+      - get: git_magento-code
+        trigger: true
+      
 
+      - task: run
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: cycloid/busybox
+              tag: latest
+          run:
+            path: /bin/bash
+            args:
+            - -xec
+            - |
+              DIR=${PWD}
+              echo "testing source code ..."
+             
   - name: build
     max_in_flight: 1
     build_logs_to_retain: 10
@@ -232,6 +257,7 @@ jobs:
     - do:
       - get: git_magento-code
         trigger: true
+        passed: [unitTest]
 
       - task: build-release
         config:
