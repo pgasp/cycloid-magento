@@ -10,11 +10,11 @@ module "magento" {
 
   #. vpc_id (required):
   #+ Amazon VPC id on which create each components.
-  vpc_id                   = "vpc-00f4a3a6008282f90"
+  vpc_id                   = "vpc-04ea42ba166526e15"
 
   #. private_subnets_ids (required, array):
   #+ Amazon subnets IDs on which create each components.
-  private_subnets_ids      = ["subnet-05ec75b5200052415","subnet-0d47d65159017b238"]
+  private_subnets_ids      = ["subnet-03d3bb5e71d52a15d","subnet-024886b5b3d3512a7"]
 
   #. magento_ssl_cert (required):
   #+ ARN of an Amazon certificate from Certificate Manager.
@@ -22,11 +22,11 @@ module "magento" {
 
   #. bastion_sg_allow (optional):
   #+ Amazon source security group ID which will be allowed to connect on Magento front port 22 (ssh).
-  bastion_sg_allow         = "sg-0d963c307b158d40d"
+  bastion_sg_allow         = "sg-0b8786e70add5ed52"
 
   #. public_subnets_ids (required, array):
   #+ Public subnet IDs to use for the public ELB load balancer.
-  public_subnets_ids       = ["subnet-09a110524b5485bf0","subnet-074da123a93c5cf96"]
+  public_subnets_ids       = ["subnet-052d0dd4b61efb021","subnet-0138ebfadcfe4e9be"]
 
   #. rds_password (optional): var.rds_password to get it from the pipeline.
   #+ Password of the RDS database.
