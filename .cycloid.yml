@@ -1,6 +1,6 @@
 # Configuration of the CI pipeline
 name: 'Presales Magento'
-canonical: 'stack-p_gasp'
+canonical: 'stack_pgasp'
 description: 'This stack will deploy a Magento on X Amazon EC2 instances behind an ELB load balancer, using RDS database and ElasticCache. add comment'
 keywords:
   - 'magento'
